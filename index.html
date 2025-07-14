@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso de Abordagens e Procedimentos Operacionais - Polícia Federal DRE</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      background: url('https://portalc3.net/wp-content/uploads/2022/09/policia-federal.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      color: #222;
+      min-height: 100vh;
+      position: relative;
+      line-height: 1.6;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(18,34,58,0.78);
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    #main-content, nav, footer {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Menu de Navegação */
+    nav {
+      background: linear-gradient(135deg, #1e3c5a 0%, #2a4a6a 100%);
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      flex-wrap: wrap;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 20px 24px;
+      font-size: 1.1em;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    nav a:hover::before {
+      left: 100%;
+    }
+    
+    nav a:hover {
+      color: #ffd700;
+      border-bottom: 3px solid #ffd700;
+      background: rgba(34,61,90,0.9);
+      transform: translateY(-2px);
+    }
+    
+    /* Container Principal */
+    .container {
+      max-width: 900px;
+      margin: 60px auto 40px auto;
+      background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+      border-radius: 32px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+      padding: 56px 56px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ffd700, #1e3c5a, #ffd700);
+    }
+    
+    .container h1, .container h2, .container h3, .container h4 {
+      text-align: center;
+    }
+    
+    .container h1 {
+      color: #0d2235;
+      font-weight: 900;
+      margin-top: 0;
+      margin-bottom: 28px;
+      font-size: 2.4em;
+      letter-spacing: 1.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .container h2 {
+      color: #1e3c5a;
+      font-weight: 800;
+      margin-top: 36px;
+      margin-bottom: 24px;
+      font-size: 1.9em;
+      border-bottom: 3px solid #ffd700;
+      padding-bottom: 12px;
+      position: relative;
+    }
+    
+    .container h2::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #1e3c5a;
+    }
+    
+    .container h3 {
+      color: #0d2235;
+      font-weight: 700;
+      margin-top: 32px;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      position: relative;
+    }
+    
+    .container h3::before {
+      content: '▶';
+      color: #ffd700;
+      margin-right: 12px;
+      font-size: 0.8em;
+    }
+    
+    .container h4 {
+      color: #1e3c5a;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 16px;
+      font-size: 1.3em;
+      border-left: 4px solid #ffd700;
+      padding-left: 16px;
+    }
+    
+    .container ul, .container ol {
+      margin-left: 36px;
+      margin-bottom: 24px;
+      line-height: 1.9;
+    }
+    
+    .container ul li, .container ol li {
+      margin-bottom: 12px;
+      font-size: 1.12em;
+      position: relative;
+    }
+    
+    .container ul li::before {
+      content: '•';
+      color: #ffd700;
+      font-weight: bold;
+      position: absolute;
+      left: -20px;
+    }
+    
+    .container p {
+      margin-bottom: 24px;
+      font-size: 1.18em;
+      line-height: 1.9;
+      text-align: justify;
+      color: #2c3e50;
+    }
+    
+    .container b {
+      color: #1e3c5a;
+      font-weight: 700;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .container hr {
+      border: none;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #ffd700, #1e3c5a, #ffd700, transparent);
+      margin: 40px 0;
+      border-radius: 2px;
+    }
+    
+    /* Caixas Destacadas */
+    .highlight-box {
+      background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%);
+      border-left: 5px solid #ffd700;
+      padding: 24px 28px;
+      margin: 24px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .highlight-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #ffd700, #1e3c5a);
+    }
+    
+    .highlight-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    
+    /* Conclusão */
+    .conclusion {
+      background: linear-gradient(145deg, #e8f4fd 0%, #d1e7f0 100%);
+      border: 3px solid #1e3c5a;
+      padding: 32px;
+      margin: 40px 0;
+      border-radius: 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .conclusion::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ffd700, #1e3c5a, #ffd700);
+    }
+    
+    .conclusion h2 {
+      color: #1e3c5a;
+      border-bottom: none;
+      margin-top: 0;
+      font-size: 2em;
+    }
+    
+    .conclusion ul {
+      text-align: left;
+      margin: 24px auto;
+      max-width: 650px;
+    }
+    
+    /* Rodapé do Manual */
+    .manual-footer {
+      background: linear-gradient(145deg, #f5f5f5 0%, #e8e8e8 100%);
+      border-top: 3px solid #ffd700;
+      padding: 24px;
+      margin-top: 40px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    /* Botão Voltar ao Topo */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(145deg, #1e3c5a, #2a4a6a);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      background: linear-gradient(145deg, #2a4a6a, #1e3c5a);
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #1e3c5a 0%, #2a4a6a 100%);
+      color: #fff;
+      text-align: center;
+      padding: 24px 0 16px 0;
+      font-size: 1.1em;
+      margin-top: 50px;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+    }
+    
+    /* Responsividade Melhorada */
+    @media (max-width: 1200px) {
+      .container {
+        max-width: 95%;
+        padding: 48px 40px;
+      }
+    }
+    
+    @media (max-width: 900px) {
+      .container { 
+        padding: 40px 32px; 
+        margin: 40px auto;
+      }
+      nav { 
+        gap: 20px; 
+        padding: 0 20px;
+      }
+      .container h1 {
+        font-size: 2em;
+      }
+      .container h2 {
+        font-size: 1.6em;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .container { 
+        padding: 32px 24px; 
+        border-radius: 24px;
+      }
+      nav { 
+        flex-wrap: wrap; 
+        gap: 15px;
+        padding: 0 15px;
+      }
+      nav a { 
+        padding: 16px 12px; 
+        font-size: 1em; 
+      }
+      .container h1 {
+        font-size: 1.8em;
+      }
+      .container h2 {
+        font-size: 1.4em;
+      }
+      .container h3 {
+        font-size: 1.3em;
+      }
+      .back-to-top {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+    
+    /* Animações */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .highlight-box, .conclusion {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    /* Scrollbar Personalizada */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 6px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #1e3c5a, #2a4a6a);
+      border-radius: 6px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #2a4a6a, #1e3c5a);
+    }
+  </style>
+</head>
+<body>
+  <div id="main-content">
+    <div style="text-align:center; margin-top:40px;" id="inicio">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Bras%C3%A3o_da_Pol%C3%ADcia_Federal_do_Brasil.svg/200px-Bras%C3%A3o_da_Pol%C3%ADcia_Federal_do_Brasil.svg.png" alt="Logo Polícia Federal" style="height:70px; margin-bottom:10px; display:block; margin-left:auto; margin-right:auto;">
+      <h1 style="color:#fff; font-size:2.2em; margin: 18px 0 8px 0; font-weight:900; letter-spacing:1px; text-shadow:0 2px 8px #0008;">CURSO DE ABORDAGENS E PROCEDIMENTOS OPERACIONAIS</h1>
+      <h2 style="color:#ffd700; font-size:1.2em; margin:0 0 8px 0; font-weight:500; text-shadow:0 2px 8px #0008;">Polícia Federal DRE - Departamento de Repressão ao Entorpecente</h2>
+    </div>
+    <div class="container">
+      <h1>CURSO COMPLETO DE ABORDAGENS E PROCEDIMENTOS OPERACIONAIS</h1>
+      <h2>Polícia Federal DRE - Departamento de Repressão ao Entorpecente</h2>
+      <hr>
+      <!-- INÍCIO BLOCO.TXT COMPLETO EM HTML -->
+      <h2 id="modulo1">MÓDULO 1: FUNDAMENTOS INSTITUCIONAIS</h2>
+      <h3>1.1 MISSÃO E VALORES</h3>
+      <div class="highlight-box">
+        <p>A Polícia Federal DRE tem como missão fundamental o combate ao tráfico de drogas e a proteção da sociedade contra as organizações criminosas que atuam neste setor. Nossa atuação é pautada pelos seguintes valores:</p>
+        <ul>
+          <li><b>HONESTIDADE</b>: Conduta íntegra em todas as ações, sem exceções</li>
+          <li><b>CORAGEM</b>: Enfrentar desafios com determinação e bravura</li>
+          <li><b>LEALDADE</b>: Compromisso inabalável com a instituição e sociedade</li>
+          <li><b>DISCIPLINA</b>: Rigor absoluto no cumprimento de procedimentos</li>
+          <li><b>PROFISSIONALISMO</b>: Excelência técnica e ética em todas as operações</li>
+        </ul>
+      </div>
+      <h3>1.2 BASE LEGAL E ÉTICA</h3>
+      <div class="highlight-box">
+        <ul>
+          <li><b>Art. 48</b>: É expressamente proibida a realização de abordagens de rotina. Toda abordagem deve ter fundamento legal específico.</li>
+          <li><b>Art. 49</b>: O procedimento de abordagem deve ser realizado calcado na obediência às normas de conduta, éticas e morais da instituição.</li>
+          <li><b>Art. 49-A</b>: Durante a realização do procedimento de abordagem é imperioso que os policiais federais emanem a voz de abordagem de maneira clara, alta e eficiente, propiciando o pleno entendimento da pessoa abordada, garantindo os direitos fundamentais, bem como o cumprimento dos princípios que regem a atuação da Administração Pública.</li>
+          <li><b>§1º</b>: O descumprimento das disposições presentes neste artigo ensejará em falta administrativa passível de apuração por parte da Corregedoria da Polícia Federal.</li>
+        </ul>
+      </div>
+      <hr>
+      <h2 id="modulo2">MÓDULO 2: ESTRUTURA OPERACIONAL</h2>
+      <h3>2.1 COMPOSIÇÃO DA EQUIPE</h3>
+      <div class="highlight-box">
+        <h4>CHEFE DA BARCA (Banco dianteiro direito)</h4>
+        <p>O Chefe da Barca é o comandante geral da equipe, possuindo atribuições fundamentais:</p>
+        <b>FUNÇÕES PRINCIPAIS:</b>
+        <ul>
+          <li>Designar funções específicas para cada membro da equipe</li>
+          <li>Coordenar todas as atividades a serem desenvolvidas na diligência</li>
+          <li>Emanar ordens legais aos demais policiais</li>
+          <li>Efetuar a comunicação de rádio com a central</li>
+          <li>Fornecer a voz de abordagem oficial</li>
+          <li>Tomar decisões táticas durante a operação</li>
+          <li>Garantir a segurança de toda a equipe</li>
+        </ul>
+        <b>RESPONSABILIDADES:</b>
+        <ul>
+          <li>Planejamento prévio da operação</li>
+          <li>Análise de riscos e ameaças</li>
+          <li>Coordenação com outras equipes</li>
+          <li>Supervisão da documentação</li>
+          <li>Comunicação com superiores</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <h4>MOTORISTA (Banco dianteiro esquerdo)</h4>
+        <p>O Motorista é responsável pela condução e manutenção do veículo, garantindo a integridade e segurança de toda a equipe:</p>
+        <b>FUNÇÕES PRINCIPAIS:</b>
+        <ul>
+          <li>Condução segura da viatura em todas as situações</li>
+          <li>Manutenção preventiva e corretiva do veículo</li>
+          <li>Posicionamento tático da viatura durante operações</li>
+          <li>Garantia da integridade física da equipe</li>
+          <li>Controle de rotas e navegação</li>
+        </ul>
+        <b>RESPONSABILIDADES:</b>
+        <ul>
+          <li>Verificação diária do veículo</li>
+          <li>Manutenção de combustível e óleo</li>
+          <li>Conhecimento de rotas alternativas</li>
+          <li>Capacidade de condução em situações de emergência</li>
+          <li>Coordenação com o Chefe da Barca para posicionamento</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <h4>TERCEIRO HOMEM (Banco passageiro traseiro esquerdo)</h4>
+        <p>O Terceiro Homem é responsável pela segurança da equipe e pela realização da lavratura de documentação administrativa:</p>
+        <b>FUNÇÕES PRINCIPAIS:</b>
+        <ul>
+          <li>Segurança da equipe durante operações</li>
+          <li>Lavratura de documentação administrativa</li>
+          <li>Controle de evidências e provas</li>
+          <li>Apoio operacional em situações críticas</li>
+          <li>Registro fotográfico quando necessário</li>
+        </ul>
+        <b>RESPONSABILIDADES:</b>
+        <ul>
+          <li>Manutenção de equipamentos de proteção</li>
+          <li>Elaboração de relatórios circunstanciados</li>
+          <li>Controle de apreensões</li>
+          <li>Suporte tático à equipe</li>
+          <li>Documentação de ocorrências</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <h4>QUARTO HOMEM (Banco passageiro traseiro direito)</h4>
+        <p>O Quarto Homem, preferencialmente ocupado por policiais de menor graduação, tem função de apoio operacional:</p>
+        <b>FUNÇÕES PRINCIPAIS:</b>
+        <ul>
+          <li>Apoio operacional à equipe</li>
+          <li>Controle de periferia durante operações</li>
+          <li>Observação tática de movimentações</li>
+          <li>Suporte em situações de emergência</li>
+          <li>Aprendizado e desenvolvimento profissional</li>
+        </ul>
+        <b>RESPONSABILIDADES:</b>
+        <ul>
+          <li>Observação constante do ambiente</li>
+          <li>Comunicação de movimentações suspeitas</li>
+          <li>Apoio na contenção de suspeitos</li>
+          <li>Suporte na documentação</li>
+          <li>Desenvolvimento de habilidades operacionais</li>
+        </ul>
+      </div>
+      <hr>
+      <h2 id="modulo3">MÓDULO 3: PROCEDIMENTOS DE ABORDAGEM</h2>
+      <h3>3.1 PROTOCOLO FUNDAMENTAL</h3>
+      <div class="highlight-box">
+        <h4>PREPARAÇÃO PRÉVIA</h4>
+        <p>Antes de qualquer abordagem, a equipe deve realizar:</p>
+        <ol>
+          <li><b>BRIEFING DA EQUIPE</b>:
+            <ul>
+              <li>Exposição do objetivo da operação</li>
+              <li>Definição de papéis e responsabilidades</li>
+              <li>Estabelecimento de códigos de comunicação</li>
+              <li>Análise de riscos e ameaças</li>
+              <li>Definição de estratégia de abordagem</li>
+            </ul>
+          </li>
+          <li><b>VERIFICAÇÃO DE EQUIPAMENTOS</b>:
+            <ul>
+              <li>Armas de serviço e munições</li>
+              <li>Equipamentos de proteção individual</li>
+              <li>Rádios comunicadores</li>
+              <li>Documentação necessária</li>
+              <li>Equipamentos de contenção</li>
+            </ul>
+          </li>
+          <li><b>ANÁLISE DE INTELIGÊNCIA</b>:
+            <ul>
+              <li>Informações sobre o local</li>
+              <li>Dados sobre possíveis suspeitos</li>
+              <li>Histórico de ocorrências na região</li>
+              <li>Coordenação com outras equipes</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+      <div class="highlight-box">
+        <h4>POSICIONAMENTO TÁTICO</h4>
+        <p>O posicionamento da equipe é fundamental para o sucesso da operação:</p>
+        <b>VIATURA:</b>
+        <ul>
+          <li>Posicionamento estratégico que permita visão ampla</li>
+          <li>Manutenção de rotas de fuga</li>
+          <li>Proteção contra emboscadas</li>
+          <li>Facilidade de manobra</li>
+        </ul>
+        <b>EQUIPE A PÉ:</b>
+        <ul>
+          <li>Distribuição em ângulos de cobertura</li>
+          <li>Controle de pontos de fuga</li>
+          <li>Coordenação visual entre membros</li>
+          <li>Manutenção de distância segura</li>
+        </ul>
+      </div>
+      <h3>3.2 TÉCNICAS DE VOZ DE ABORDAGEM</h3>
+      <div class="highlight-box">
+        <h4>REGRAS FUNDAMENTAIS</h4>
+        <ul>
+          <li><b>CLAREZA</b>: Linguagem compreensível para qualquer pessoa</li>
+          <li><b>VOLUME</b>: Alto o suficiente para ser ouvido claramente</li>
+          <li><b>EFICIÊNCIA</b>: Objetividade na comunicação</li>
+          <li><b>AUTORIDADE</b>: Tom firme e profissional</li>
+          <li><b>CONTROLE</b>: Manutenção da calma em todas as situações</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <h4>EXEMPLOS PRÁTICOS</h4>
+        <b>ABORDAGEM PADRÃO:</b>
+        <p>"POLÍCIA FEDERAL! Somos agentes da Polícia Federal DRE. Estamos realizando diligência de combate ao tráfico de drogas. Solicitamos sua identificação e documentos do veículo. Mantenha as mãos visíveis e siga nossas instruções."</p>
+        <b>ABORDAGEM EM SITUAÇÃO DE RISCO:</b>
+        <p>"POLÍCIA FEDERAL! Somos agentes da Polícia Federal DRE. Estamos realizando diligência de combate ao tráfico de drogas. Mantenha as mãos visíveis e não faça movimentos bruscos. Qualquer movimento suspeito será interpretado como ameaça."</p>
+        <b>ABORDAGEM EM VEÍCULO:</b>
+        <p>"POLÍCIA FEDERAL! Somos agentes da Polícia Federal DRE. Estamos realizando diligência de combate ao tráfico de drogas. Desligue o motor e mantenha as mãos no volante. Todos os passageiros devem manter as mãos visíveis."</p>
+      </div>
+      <h3>3.3 FASES DA ABORDAGEM</h3>
+      <div class="highlight-box">
+        <h4>FASE 1: IDENTIFICAÇÃO E APROXIMAÇÃO</h4>
+        <ol>
+          <li>Posicionamento tático da equipe</li>
+          <li>Identificação clara da autoridade</li>
+          <li>Explicação do motivo da abordagem</li>
+          <li>Solicitação de documentos</li>
+          <li>Observação de comportamento</li>
+        </ol>
+      </div>
+      <div class="highlight-box">
+        <h4>FASE 2: VERIFICAÇÃO E ANÁLISE</h4>
+        <ol>
+          <li>Verificação de documentos apresentados</li>
+          <li>Busca no sistema de informações</li>
+          <li>Verificação de antecedentes criminais</li>
+          <li>Análise de comportamento suspeito</li>
+          <li>Observação de sinais de nervosismo</li>
+        </ol>
+      </div>
+      <div class="highlight-box">
+        <h4>FASE 3: AÇÃO E CONTROLE</h4>
+        <ol>
+          <li>Apreensão (quando necessário)</li>
+          <li>Leitura dos direitos constitucionais</li>
+          <li>Condução para delegacia</li>
+          <li>Documentação completa</li>
+          <li>Relatório circunstanciado</li>
+        </ol>
+      </div>
+      <hr>
+      <h2 id="modulo4">MÓDULO 4: OPERAÇÕES ESPECÍFICAS</h2>
+      <h3>4.1 OPERAÇÃO DE COMBATE AO TRÁFICO</h3>
+      <div class="highlight-box">
+        <h4>PLANEJAMENTO OPERACIONAL</h4>
+        <b>COLETA DE INFORMAÇÕES:</b>
+        <ul>
+          <li>Dados de inteligência</li>
+          <li>Informações de fontes confidenciais</li>
+          <li>Análise de padrões de comportamento</li>
+          <li>Mapeamento de rotas de tráfico</li>
+          <li>Identificação de pontos de distribuição</li>
+        </ul>
+        <b>ANÁLISE DE INTELIGÊNCIA:</b>
+        <ul>
+          <li>Cruzamento de informações</li>
+          <li>Identificação de suspeitos</li>
+          <li>Mapeamento de organizações criminosas</li>
+          <li>Análise de vulnerabilidades</li>
+          <li>Definição de alvos prioritários</li>
+        </ul>
+        <b>PLANEJAMENTO TÁTICO:</b>
+        <ul>
+          <li>Definição de estratégia de abordagem</li>
+          <li>Distribuição de equipes</li>
+          <li>Estabelecimento de pontos de controle</li>
+          <li>Definição de rotas de fuga</li>
+          <li>Coordenação com outros órgãos</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <h4>EXECUÇÃO OPERACIONAL</h4>
+        <b>POSICIONAMENTO:</b>
+        <ul>
+          <li>Distribuição estratégica das equipes</li>
+          <li>Controle de pontos de acesso</li>
+          <li>Estabelecimento de perímetros de segurança</li>
+          <li>Coordenação visual entre equipes</li>
+        </ul>
+        <b>ABORDAGEM SIMULTÂNEA:</b>
+        <ul>
+          <li>Sincronização de ações</li>
+          <li>Controle de múltiplos alvos</li>
+          <li>Prevenção de fuga de suspeitos</li>
+          <li>Garantia de segurança da equipe</li>
+        </ul>
+        <b>CONTROLE DE SUSPEITOS:</b>
+        <ul>
+          <li>Aplicação de técnicas de contenção</li>
+          <li>Verificação de armas</li>
+          <li>Controle de movimentação</li>
+          <li>Prevenção de resistência</li>
+        </ul>
+      </div>
+      <h3>4.2 OPERAÇÃO DE APREENSÃO</h3>
+      <div class="highlight-box">
+        <h4>PROTOCOLO DE APREENSÃO</h4>
+        <b>IDENTIFICAÇÃO DO SUSPEITO:</b>
+        <ul>
+          <li>Verificação de documentos</li>
+          <li>Confirmação de identidade</li>
+          <li>Verificação de antecedentes</li>
+          <li>Análise de comportamento</li>
+        </ul>
+        <b>EXPLICAÇÃO DOS MOTIVOS:</b>
+        <ul>
+          <li>Clareza na comunicação</li>
+          <li>Fundamentação legal</li>
+          <li>Explicação dos direitos</li>
+          <li>Orientação sobre procedimentos</li>
+        </ul>
+        <b>LEITURA DOS DIREITOS:</b>
+        <ul>
+          <li>Direito ao silêncio</li>
+          <li>Direito à defesa</li>
+          <li>Direito de não produzir provas contra si mesmo</li>
+          <li>Direito de ser assistido por advogado</li>
+        </ul>
+        <b>APREENSÃO E CONDUÇÃO:</b>
+        <ul>
+          <li>Aplicação de algemas quando necessário</li>
+          <li>Condução segura para viatura</li>
+          <li>Transporte para delegacia</li>
+          <li>Manutenção da integridade física</li>
+        </ul>
+      </div>
+      <hr>
+      <h2 id="modulo5">MÓDULO 5: DOCUMENTAÇÃO E RELATÓRIOS</h2>
+      <h3>5.1 TIPOS DE DOCUMENTAÇÃO</h3>
+      <div class="highlight-box">
+        <h4>TERMO DE ABORDAGEM</h4>
+        <b>ELEMENTOS OBRIGATÓRIOS:</b>
+        <ul>
+          <li>Data e horário da abordagem</li>
+          <li>Local exato da ocorrência</li>
+          <li>Identificação completa da equipe</li>
+          <li>Motivo específico da abordagem</li>
+          <li>Resultado detalhado da diligência</li>
+          <li>Assinaturas de todos os envolvidos</li>
+          <li>Testemunhas (quando houver)</li>
+        </ul>
+        <b>INFORMAÇÕES COMPLEMENTARES:</b>
+        <ul>
+          <li>Condições climáticas</li>
+          <li>Visibilidade no local</li>
+          <li>Comportamento dos abordados</li>
+          <li>Respostas às perguntas</li>
+          <li>Observações relevantes</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <h4>RELATÓRIO CIRCUNSTANCIADO</h4>
+        <b>ESTRUTURA OBRIGATÓRIA:</b>
+        <ol>
+          <li><b>Cabeçalho</b>: Identificação da unidade e equipe</li>
+          <li><b>Introdução</b>: Contexto da operação</li>
+          <li><b>Desenvolvimento</b>: Descrição detalhada dos fatos</li>
+          <li><b>Provas e Evidências</b>: Relação de materiais apreendidos</li>
+          <li><b>Testemunhas</b>: Identificação de testemunhas</li>
+          <li><b>Conclusões</b>: Resultado da diligência</li>
+          <li><b>Encaminhamentos</b>: Destino dos apreendidos e materiais</li>
+        </ol>
+      </div>
+      <h3>5.2 CONTROLE DE EVIDÊNCIAS</h3>
+      <div class="highlight-box">
+        <h4>PROTOCOLO DE EVIDÊNCIAS</h4>
+        <b>IDENTIFICAÇÃO:</b>
+        <ul>
+          <li>Numeração sequencial</li>
+          <li>Descrição detalhada</li>
+          <li>Local de encontro</li>
+          <li>Horário de apreensão</li>
+          <li>Responsável pela apreensão</li>
+        </ul>
+        <b>FOTOGRAFIA:</b>
+        <ul>
+          <li>Registro fotográfico completo</li>
+          <li>Ângulos múltiplos</li>
+          <li>Escala de referência</li>
+          <li>Condições de iluminação</li>
+          <li>Preservação do estado original</li>
+        </ul>
+        <b>ACONDICIONAMENTO:</b>
+        <ul>
+          <li>Embalagem adequada</li>
+          <li>Preservação de vestígios</li>
+          <li>Proteção contra contaminação</li>
+          <li>Identificação clara</li>
+          <li>Lacre de segurança</li>
+        </ul>
+        <b>REGISTRO NO SISTEMA:</b>
+        <ul>
+          <li>Inclusão no sistema de controle</li>
+          <li>Numeração oficial</li>
+          <li>Descrição técnica</li>
+          <li>Localização no depósito</li>
+          <li>Responsável pela custódia</li>
+        </ul>
+      </div>
+      <hr>
+      <h2 id="modulo6">MÓDULO 6: COMUNICAÇÃO OPERACIONAL</h2>
+      <h3>6.2 COORDENAÇÃO INTERINSTITUCIONAL</h3>
+      <div class="highlight-box">
+        <h4>INTEGRAÇÃO COM OUTROS ÓRGÃOS</h4>
+        <b>POLÍCIA MILITAR:</b>
+        <ul>
+          <li>Apoio em operações de grande porte</li>
+          <li>Controle de trânsito</li>
+          <li>Isolamento de áreas</li>
+          <li>Suporte logístico</li>
+        </ul>
+        <b>POLÍCIA CIVIL:</b>
+        <ul>
+          <li>Troca de informações</li>
+          <li>Apoio investigativo</li>
+          <li>Coordenação de diligências</li>
+          <li>Compartilhamento de recursos</li>
+        </ul>
+        <b>GUARDA MUNICIPAL:</b>
+        <ul>
+          <li>Controle de áreas públicas</li>
+          <li>Apoio em eventos</li>
+          <li>Informações locais</li>
+          <li>Suporte operacional</li>
+        </ul>
+        <b>CORPO DE BOMBEIROS:</b>
+        <ul>
+          <li>Suporte em emergências</li>
+          <li>Resgate em situações críticas</li>
+          <li>Apoio técnico</li>
+          <li>Coordenação de evacuações</li>
+        </ul>
+      </div>
+      <hr>
+      <h2 id="modulo7">MÓDULO 7: SEGURANÇA OPERACIONAL</h2>
+      <h3>7.1 MEDIDAS DE PROTEÇÃO</h3>
+      <div class="highlight-box">
+        <h4>EQUIPAMENTOS OBRIGATÓRIOS</h4>
+        <b>PROTEÇÃO INDIVIDUAL:</b>
+        <ul>
+          <li>Colete balístico certificado</li>
+          <li>Luvas de proteção</li>
+          <li>Calçado adequado</li>
+          <li>Uniforme oficial</li>
+        </ul>
+        <b>ARMAMENTO:</b>
+        <ul>
+          <li>Arma de serviço</li>
+          <li>Munições suficientes</li>
+          <li>Equipamentos de manutenção</li>
+          <li>Certificação de uso</li>
+        </ul>
+        <b>COMUNICAÇÃO:</b>
+        <ul>
+          <li>Rádio comunicador</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <h4>PROCEDIMENTOS DE SEGURANÇA</h4>
+        <b>VERIFICAÇÃO PRÉVIA:</b>
+        <ul>
+          <li>Checagem de equipamentos</li>
+          <li>Verificação de armamento</li>
+          <li>Teste de comunicação</li>
+          <li>Análise de riscos</li>
+          <li>Briefing de segurança</li>
+        </ul>
+        <b>POSICIONAMENTO TÁTICO:</b>
+        <ul>
+          <li>Distribuição estratégica</li>
+          <li>Ângulos de cobertura</li>
+          <li>Pontos de fuga</li>
+          <li>Coordenação visual</li>
+          <li>Controle de periferia</li>
+        </ul>
+        <b>COMUNICAÇÃO CONSTANTE:</b>
+        <ul>
+          <li>Relatórios periódicos</li>
+          <li>Códigos de situação</li>
+          <li>Alertas de emergência</li>
+          <li>Coordenação de movimentos</li>
+          <li>Confirmação de posições</li>
+        </ul>
+      </div>
+      <h3>7.2 GESTÃO DE RISCO</h3>
+      <div class="highlight-box">
+        <h4>AVALIAÇÃO DE RISCOS</h4>
+        <b>RISCOS IDENTIFICADOS:</b>
+        <ul>
+          <li>Resistência à abordagem</li>
+          <li>Posse de arma de fogo</li>
+          <li>Tentativa de fuga</li>
+          <li>Ameaça à integridade física</li>
+          <li>Resistência em grupo</li>
+        </ul>
+        <b>MEDIDAS PREVENTIVAS:</b>
+        <ul>
+          <li>Análise prévia de riscos</li>
+          <li>Identificação de ameaças</li>
+          <li>Plano de contingência</li>
+          <li>Suporte de backup</li>
+          <li>Treinamento específico</li>
+        </ul>
+        <b>PROCEDIMENTOS DE EMERGÊNCIA:</b>
+        <ul>
+          <li>Procedimentos de evacuação</li>
+          <li>Coordenação de backup</li>
+          <li>Comunicação de situação</li>
+          <li>Primeiros socorros</li>
+        </ul>
+      </div>
+      <hr>
+      <h2 id="modulo8">MÓDULO 8: TREINAMENTO E CAPACITAÇÃO</h2>
+      <h3>8.1 SIMULAÇÕES OPERACIONAIS</h3>
+      <div class="highlight-box">
+        <h4>CENÁRIOS DE TREINAMENTO</h4>
+        <b>ABORDAGEM DE VEÍCULO:</b>
+        <ul>
+          <li>Posicionamento da viatura</li>
+          <li>Técnicas de abordagem</li>
+          <li>Controle de passageiros</li>
+          <li>Verificação de documentos</li>
+          <li>Busca no veículo</li>
+        </ul>
+        <b>BUSCA EM RESIDÊNCIA:</b>
+        <ul>
+          <li>Planejamento tático</li>
+          <li>Técnicas de entrada</li>
+          <li>Controle de ambiente</li>
+          <li>Busca sistemática</li>
+          <li>Documentação</li>
+        </ul>
+        <b>SITUAÇÃO DE EMERGÊNCIA:</b>
+        <ul>
+          <li>Controle de pânico</li>
+          <li>Coordenação de equipe</li>
+          <li>Procedimentos de evacuação</li>
+          <li>Primeiros socorros</li>
+          <li>Comunicação de emergência</li>
+        </ul>
+      </div>
+      <h3>8.2 AVALIAÇÃO DE DESEMPENHO</h3>
+      <div class="highlight-box">
+        <h4>CRITÉRIOS DE AVALIAÇÃO</h4>
+        <b>CONHECIMENTO TÉCNICO:</b>
+        <ul>
+          <li>Domínio de procedimentos</li>
+          <li>Aplicação de técnicas</li>
+          <li>Conhecimento legal</li>
+          <li>Capacidade de análise</li>
+          <li>Tomada de decisão</li>
+        </ul>
+        <b>TRABALHO EM EQUIPE:</b>
+        <ul>
+          <li>Coordenação de ações</li>
+          <li>Comunicação efetiva</li>
+          <li>Suporte aos colegas</li>
+          <li>Respeito à hierarquia</li>
+          <li>Espírito de equipe</li>
+        </ul>
+        <b>SEGURANÇA OPERACIONAL:</b>
+        <ul>
+          <li>Aplicação de medidas de segurança</li>
+          <li>Prevenção de acidentes</li>
+          <li>Controle de situações de risco</li>
+          <li>Uso adequado de equipamentos</li>
+          <li>Manutenção da integridade física</li>
+        </ul>
+      </div>
+      <hr>
+      <h2 id="modulo9">MÓDULO 9: PROTOCOLOS ESPECÍFICOS</h2>
+      <h3>9.1 ABORDAGEM DE VEÍCULOS</h3>
+      <div class="highlight-box">
+        <h4>PROCEDIMENTO COMPLETO</h4>
+        <b>FASE 1 - APROXIMAÇÃO:</b>
+        <ol>
+          <li>Posicionamento tático da viatura</li>
+          <li>Sinalização adequada para parada</li>
+          <li>Identificação clara da autoridade</li>
+          <li>Solicitação de parada do veículo</li>
+          <li>Observação de comportamento dos ocupantes</li>
+        </ol>
+        <b>FASE 2 - CONTROLE:</b>
+        <ol>
+          <li>Verificação de documentos do condutor</li>
+          <li>Verificação de documentos do veículo</li>
+          <li>Busca no sistema de informações</li>
+          <li>Verificação de carga transportada</li>
+          <li>Análise de comportamento suspeito</li>
+        </ol>
+        <b>FASE 3 - AÇÃO:</b>
+        <ol>
+          <li>Apreensão do veículo (quando necessário)</li>
+          <li>Aplicação de multas (quando aplicável)</li>
+          <li>Liberação do veículo</li>
+          <li>Documentação completa</li>
+          <li>Relatório circunstanciado</li>
+        </ol>
+      </div>
+      <h3>9.2 BUSCA EM RESIDÊNCIA</h3>
+      <div class="highlight-box">
+        <h4>PROCEDIMENTO COMPLETO</h4>
+        <b>FASE 1 - PREPARAÇÃO:</b>
+        <ol>
+          <li>Coleta de informações sobre o local</li>
+          <li>Planejamento tático detalhado</li>
+          <li>Coordenação de equipe</li>
+          <li>Obtenção de autorização judicial</li>
+          <li>Análise de riscos específicos</li>
+        </ol>
+        <b>FASE 2 - EXECUÇÃO:</b>
+        <ol>
+          <li>Identificação clara da autoridade</li>
+          <li>Apresentação de mandado judicial</li>
+          <li>Busca sistemática em todos os cômodos</li>
+          <li>Controle de evidências encontradas</li>
+          <li>Documentação fotográfica</li>
+        </ol>
+        <b>FASE 3 - CONCLUSÃO:</b>
+        <ol>
+          <li>Documentação completa</li>
+          <li>Apreensão de materiais</li>
+          <li>Encaminhamento de suspeitos</li>
+          <li>Elaboração de relatório</li>
+          <li>Arquivamento de processo</li>
+        </ol>
+      </div>
+      <hr>
+      <h2 id="modulo10">MÓDULO 10: ASPECTOS LEGAIS E ÉTICOS</h2>
+      <h3>10.1 FUNDAMENTAÇÃO LEGAL</h3>
+      <div class="highlight-box">
+        <h4>BASE CONSTITUCIONAL</h4>
+        <b>PRINCÍPIOS CONSTITUCIONAIS:</b>
+        <ul>
+          <li>Legalidade das ações</li>
+          <li>Proporcionalidade das medidas</li>
+          <li>Respeito à dignidade humana</li>
+          <li>Garantia dos direitos fundamentais</li>
+          <li>Devido processo legal</li>
+        </ul>
+        <b>DIREITOS INDIVIDUAIS:</b>
+        <ul>
+          <li>Direito à liberdade</li>
+          <li>Direito à privacidade</li>
+          <li>Direito à intimidade</li>
+          <li>Direito à inviolabilidade do domicílio</li>
+          <li>Direito ao silêncio</li>
+        </ul>
+      </div>
+      <h3>10.2 RESPONSABILIDADE ADMINISTRATIVA</h3>
+      <div class="highlight-box">
+        <h4>CONTROLE DISCIPLINAR</h4>
+        <b>FALTAS ADMINISTRATIVAS:</b>
+        <ul>
+          <li>Advertência</li>
+          <li>Suspensão</li>
+          <li>Demissão</li>
+          <li>Processo disciplinar</li>
+          <li>Responsabilização civil</li>
+        </ul>
+        <b>APURAÇÃO:</b>
+        <ul>
+          <li>Investigação pela Corregedoria</li>
+          <li>Processo administrativo</li>
+          <li>Defesa do acusado</li>
+          <li>Decisão fundamentada</li>
+          <li>Recursos cabíveis</li>
+        </ul>
+      </div>
+      <hr>
+      <h2 id="modulo11">MÓDULO 11: USO PROGRESSIVO DA FORÇA</h2>
+      <h3>11.1 PRINCÍPIOS FUNDAMENTAIS</h3>
+      <div class="highlight-box">
+        <h4>CONCEITO E APLICAÇÃO</h4>
+        <p>O uso progressivo da força é um princípio fundamental que estabelece que o policial deve usar apenas o nível de força necessário e proporcional para controlar uma situação, escalando gradualmente conforme a resistência encontrada.</p>
+        <b>PRINCÍPIOS BÁSICOS:</b>
+        <ul>
+          <li><b>PROPORCIONALIDADE</b>: A força utilizada deve ser proporcional à ameaça</li>
+          <li><b>NECESSIDADE</b>: Apenas quando estritamente necessário</li>
+          <li><b>LEGALIDADE</b>: Conformidade com a legislação vigente</li>
+          <li><b>HUMANIDADE</b>: Respeito à dignidade humana</li>
+          <li><b>CONTROLE</b>: Manutenção do controle emocional</li>
+        </ul>
+      </div>
+      <h3>11.2 NÍVEIS DE FORÇA</h3>
+      <div class="highlight-box">
+        <h4>ESCALA PROGRESSIVA</h4>
+        <b>NÍVEL 1 - PRESENÇA PROFISSIONAL:</b>
+        <ul>
+          <li>Uniforme adequado e identificação clara</li>
+          <li>Postura profissional e confiante</li>
+          <li>Comunicação verbal respeitosa</li>
+          <li>Demonstração de autoridade sem intimidação</li>
+          <li>Capacidade de dissuadir sem uso de força</li>
+        </ul>
+        <b>NÍVEL 2 - COMUNICAÇÃO VERBAL:</b>
+        <ul>
+          <li>Instruções claras e objetivas</li>
+          <li>Voz de abordagem adequada</li>
+          <li>Explicação dos motivos da ação</li>
+          <li>Oportunidade de cooperação</li>
+          <li>Uso de técnicas de persuasão</li>
+        </ul>
+        <b>NÍVEL 3 - CONTROLE FÍSICO SUAVE:</b>
+        <ul>
+          <li>Técnicas de contenção sem lesão</li>
+          <li>Imobilização temporária</li>
+          <li>Escolta com contato mínimo</li>
+          <li>Uso de algemas quando necessário</li>
+          <li>Controle de movimentação</li>
+        </ul>
+        <b>NÍVEL 4 - CONTROLE FÍSICO RIGOROSO:</b>
+        <ul>
+          <li>Técnicas de imobilização</li>
+          <li>Controle de resistência ativa</li>
+          <li>Uso de equipamentos de contenção</li>
+          <li>Prevenção de fuga</li>
+          <li>Proteção de terceiros</li>
+        </ul>
+        <b>NÍVEL 5 - FORÇA INTERMEDIÁRIA:</b>
+        <ul>
+          <li>Uso de spray de pimenta</li>
+          <li>Bastão de choque (Taser)</li>
+          <li>Granadas de efeito moral</li>
+          <li>Controle de multidões</li>
+          <li>Dispersão de aglomerações</li>
+        </ul>
+        <b>NÍVEL 6 - FORÇA LETAL:</b>
+        <ul>
+          <li>Uso de arma de fogo</li>
+          <li>Apenas em legítima defesa</li>
+          <li>Proteção de vida própria ou de terceiros</li>
+          <li>Último recurso disponível</li>
+          <li>Responsabilidade total pela ação</li>
+        </ul>
+      </div>
+      <h3>11.3 CRITÉRIOS DE DECISÃO</h3>
+      <div class="highlight-box">
+        <h4>FATORES DE AVALIAÇÃO</h4>
+        <b>ANÁLISE DA SITUAÇÃO:</b>
+        <ul>
+          <li>Capacidade física do suspeito</li>
+          <li>Número de suspeitos</li>
+          <li>Presença de armas</li>
+          <li>Comportamento agressivo</li>
+          <li>Histórico de violência</li>
+        </ul>
+        <b>CONDIÇÕES AMBIENTAIS:</b>
+        <ul>
+          <li>Visibilidade no local</li>
+          <li>Presença de civis</li>
+          <li>Condições climáticas</li>
+          <li>Espaço disponível</li>
+          <li>Possibilidade de fuga</li>
+        </ul>
+        <b>RECURSOS DISPONÍVEIS:</b>
+        <ul>
+          <li>Número de policiais</li>
+          <li>Equipamentos disponíveis</li>
+          <li>Suporte de backup</li>
+          <li>Comunicação operacional</li>
+          <li>Tempo de resposta</li>
+        </ul>
+      </div>
+      <h3>11.4 PROCEDIMENTOS ESPECÍFICOS</h3>
+      <div class="highlight-box">
+        <h4>USO DE ARMA DE FOGO</h4>
+        <b>CONDIÇÕES OBRIGATÓRIAS:</b>
+        <ul>
+          <li>Legítima defesa própria</li>
+          <li>Legítima defesa de terceiros</li>
+          <li>Proteção de patrimônio público</li>
+          <li>Prevenção de fuga de preso perigoso</li>
+          <li>Último recurso disponível</li>
+        </ul>
+        <b>PROCEDIMENTOS OBRIGATÓRIOS:</b>
+        <ul>
+          <li>Identificação clara da ameaça</li>
+          <li>Advertência verbal quando possível</li>
+          <li>Disparo de advertência (quando adequado)</li>
+          <li>Mira em áreas não letais</li>
+          <li>Documentação imediata</li>
+        </ul>
+        <b>PÓS-UTILIZAÇÃO:</b>
+        <ul>
+          <li>Prestação de primeiros socorros</li>
+          <li>Comunicação imediata à central</li>
+          <li>Preservação da cena</li>
+          <li>Elaboração de relatório detalhado</li>
+          <li>Investigação administrativa</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <h4>USO DE EQUIPAMENTOS MENOS LETAIS</h4>
+        <b>SPRAY DE PIMENTA:</b>
+        <ul>
+          <li>Controle de distância adequada</li>
+          <li>Direcionamento preciso</li>
+          <li>Proteção de civis</li>
+          <li>Condições climáticas favoráveis</li>
+          <li>Procedimentos de descontaminação</li>
+        </ul>
+        <b>BASTÃO DE CHOQUE (TASER):</b>
+        <ul>
+          <li>Verificação de funcionamento</li>
+          <li>Distância operacional adequada</li>
+          <li>Controle de tempo de aplicação</li>
+          <li>Monitoramento de sinais vitais</li>
+          <li>Procedimentos de segurança</li>
+        </ul>
+        <b>BASTÃO TÁTICO:</b>
+        <ul>
+          <li>Uso apenas em situações específicas</li>
+          <li>Golpes em áreas não vitais</li>
+          <li>Controle da intensidade</li>
+          <li>Prevenção de lesões graves</li>
+          <li>Documentação da utilização</li>
+        </ul>
+      </div>
+      <h3>11.5 TREINAMENTO E CAPACITAÇÃO</h3>
+      <div class="highlight-box">
+        <h4>PROGRAMA DE TREINAMENTO</h4>
+        <b>SIMULAÇÕES REALISTAS:</b>
+        <ul>
+          <li>Cenários de uso progressivo da força</li>
+          <li>Treinamento com equipamentos menos letais</li>
+          <li>Simulações de tiro</li>
+          <li>Controle de situações de stress</li>
+          <li>Tomada de decisão sob pressão</li>
+        </ul>
+        <b>AVALIAÇÃO CONTÍNUA:</b>
+        <ul>
+          <li>Testes de proficiência</li>
+          <li>Avaliação de desempenho</li>
+          <li>Reciclagem periódica</li>
+          <li>Atualização de técnicas</li>
+          <li>Feedback construtivo</li>
+        </ul>
+        <b>DOCUMENTAÇÃO:</b>
+        <ul>
+          <li>Registro de treinamentos</li>
+          <li>Certificação de proficiência</li>
+          <li>Histórico de utilização</li>
+          <li>Relatórios de incidentes</li>
+          <li>Análise de tendências</li>
+        </ul>
+      </div>
+      <hr>
+      <div class="conclusion" id="conclusao">
+        <h2>CONCLUSÃO</h2>
+        <p>Este curso estabelece os fundamentos operacionais para a atuação da Polícia Federal DRE, garantindo:</p>
+        <ul>
+          <li><b>PROFISSIONALISMO</b>: Conduta ética e técnica em todas as ações</li>
+          <li><b>EFICIÊNCIA</b>: Procedimentos padronizados e eficazes</li>
+          <li><b>SEGURANÇA</b>: Proteção da equipe e dos cidadãos</li>
+          <li><b>LEGALIDADE</b>: Conformidade com a legislação vigente</li>
+          <li><b>EXCELÊNCIA</b>: Busca constante pela melhoria operacional</li>
+        </ul>
+        <p><b>IMPORTANTE</b>: Este manual deve ser seguido rigorosamente, garantindo a qualidade das operações e a proteção dos direitos fundamentais de todos os envolvidos.</p>
+      </div>
+      <div class="manual-footer">
+        <p style="font-size:0.95em; color:#666; text-align:center; margin:0;">
+          <i>Manual Operacional - Polícia Federal DRE<br>Versão: 1.0<br>Data: 2025</i>
+        </p>
+      </div>
+    </div>
+    <footer>
+      &copy; 2025 Polícia Federal DRE - Curso de Abordagens e Procedimentos Operacionais. Desenvolvido para fins educacionais.
+    </footer>
+  </div>
+  <button id="back-to-top" class="back-to-top">↑</button>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToTop = document.getElementById('back-to-top');
+      const mainContent = document.getElementById('main-content');
+
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add('visible');
+        } else {
+          backToTop.classList.remove('visible');
+        }
+      });
+
+      backToTop.addEventListener('click', function() {
+        mainContent.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html> 
